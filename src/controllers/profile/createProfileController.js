@@ -7,6 +7,3 @@ export const createProfileController = async (req, res) => {
     profile: dados
   })
 }
-
-
-
