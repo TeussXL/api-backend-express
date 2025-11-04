@@ -6,6 +6,7 @@ import customerRouter from './routers/customerRouter.js'
 import carRouter from './routers/carRouter.js'
 import cors from 'cors'
 import { logger } from './middlewares/logger.js'
+import authRouter from './routers/authRouter.js'
 
 const app = express()
 const port = 3333
@@ -14,6 +15,7 @@ app.use(logger)
 app.use(cors()) // Habilitar o CORS para todas as rotas e todos os domínios 
 app.use(express.json()) // Converter o JSON que chegou na requisição em um objeto js e vai salvar em req.body
 
+app.use('/auth', authRouter)
 app.use('/profile', profileRouter)
 app.use('/product', productRouter)
 app.use('/supplier', supplierRouter)
