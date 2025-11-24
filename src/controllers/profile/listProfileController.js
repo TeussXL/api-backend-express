@@ -1,11 +1,14 @@
 import { list } from '../../models/profileModel.js'
 
 export const listProfileController = async (req, res) => {
+  try {
   const result = await list()
 
   res.json({
-    message: 'usuarios consultados com sucesso!',
-    profile: result
+    message: 'Usuários consultados com sucesso!',
+    profiles: result
   })
+} catch (error) {
+  next(error)
 }
-
+}

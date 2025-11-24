@@ -1,6 +1,7 @@
 import { update, validateProfile } from "../../models/profileModel.js"
 
-export const editProfileController = async (req, res) => {
+export const editProfileController = async (req, res, next) => {
+  try {
   const id = req.params.id
   const profile = req.body
 
@@ -22,4 +23,7 @@ export const editProfileController = async (req, res) => {
     message: 'Usuário editado com sucesso!',
     profile: result
   })
+} catch (error) {
+  next(error)
+}
 }
